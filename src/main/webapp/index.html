@@ -29,29 +29,25 @@
         </nav>
     </header>
     <main>
+    	<button id="toggleButton" aria-label="Minimizar/Maximizar formulario">-</button>
         <form id="searchForm" action="/ServletForm" method="GET">
         	<label>
-        		Búsqueda por Nombre
+        		Búsqueda por Nombre:
             	<input type="text" name="searchNameInput" id="searchNameInput" placeholder="Ingrese título" aria-label="Buscar por título">
             </label>
-           <!--  <label>
-            	Búsqueda por ISBN
+            <br>
+           <label>
+            	Búsqueda por ISBN:
             	<input type="text" name="searchISBNInput" id="searchISBNInput" placeholder="Ingrese ISBN" aria-label="Buscar ISBN">
-            </label> -->
+            </label>
             <button type="submit" value="enviarInfo">Buscar</button>
         </form>
-<!--         <section id="Resultados">
-            <h3>Resultados</h3>
-            <div id="booksContainer">
-                    Aqui van los libros
-            </div>
-        </section> -->
     </main>
     <footer>
             <p>&copy; 2024 RadarBook SL</p>
             <p><a href="ComoSeHizo.pdf">¿Cómo se hizo?</a></p>
             <p><a href="contacto.html">¿Quiénes somos?</a></p>
     </footer>
-    <!-- <script src="js/script.js"></script> -->
+    <script src="toggleForm.js"></script>
 </body>
 </html>

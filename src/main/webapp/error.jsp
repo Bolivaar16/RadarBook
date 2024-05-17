@@ -11,24 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+        }
+
+        .central-content {
             display: flex;
             justify-content: center;
-            align-items: center;
             height: 100vh;
         }
 
         .container {
+        	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fff;
             padding: 40px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 10px;
             width: 80%;
+            height:fit-content;
             max-width: 600px;
             text-align: center;
+            margin-top:30px;
+            background-color: #f9f9f9;	
         }
 
         .container h1 {
@@ -57,7 +61,7 @@
     </style>
 </head>
 <body>
-    <header>
+	<header>
         <img id="logo_principal" src="Imagenes/logoHeader.png"></img>
         <div id="titulo_header">
             <h1 id="titulo">RadarBook</h1>
@@ -70,18 +74,19 @@
             </ul>
         </nav>
     </header>
-<body>
-    <div class="container">
-        <h1>Se ha producido un error</h1>
-        <p>Lo sentimos mucho, pero algo no ha salido como esperábamos. Aquí está el detalle del error:</p>
-        <p><%= request.getAttribute("error") != null ? request.getAttribute("error") : "No se proporcionó más información del error." %></p>
-        <a href="index.html">Intentar nuevamente</a>
-        <p>O si prefieres, puedes <a href="contacto.html">contactarnos</a> si necesitas ayuda.</p>
+    <div class="central-content">
+        <div class="container">
+            <h1>Se ha producido un error</h1>
+            <p>Lo sentimos mucho, pero algo no ha salido como esperábamos. Aquí está el detalle del error:</p>
+            <p><%= request.getAttribute("error") != null ? request.getAttribute("error") : "No se proporcionó más información del error." %></p>
+            <a href="index.html">Intentar nuevamente</a>
+            <p>O si prefieres, puedes <a href="contacto.html">contactarnos</a> si necesitas ayuda.</p>
+        </div>
     </div>
 </body>
 <footer>
-            <p>&copy; 2024 RadarBook SL</p>
-            <p><a href="ComoSeHizo.pdf">¿Cómo se hizo?</a></p>
-            <p><a href="contacto.html">¿Quiénes somos?</a></p>
+    <p>&copy; 2024 RadarBook SL</p>
+    <p><a href="ComoSeHizo.pdf">¿Cómo se hizo?</a></p>
+    <p><a href="contacto.html">¿Quiénes somos?</a></p>
 </footer>
 </html>
