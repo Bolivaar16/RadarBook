@@ -79,7 +79,7 @@ public class Libro {
     }
     
     //Constructor con parámetros para ebay
-    public Libro(String titulo, String isbn, ArrayList<String> autores, String editora, String paginas, String url, Oferta oferta) {
+    public Libro(String titulo, String isbn, ArrayList<String> autores, String editora, String paginas, String url, Oferta oferta, String imagen) {
     	this.titulo = titulo;
 	    this.isbn = isbn;
 	    this.autores = autores;
@@ -87,6 +87,7 @@ public class Libro {
 	    this.paginas = paginas;
 	    this.url = url;
 	    this.oferta = oferta;
+	    this.imagen = imagen;
     }
 	
 	public String getTitulo() {

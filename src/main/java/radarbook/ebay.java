@@ -141,14 +141,30 @@ public class ebay {
 		return enlaces;
 	}
 	
+	//Método con el que devuelvo un array de url de Imágenes
+	private ArrayList<String> imagenesDisponibles (Document doc) {
+		
+		ArrayList<String> imagenes = new ArrayList<>();
+		Elements imagenesE = doc.select("div.s-item__image-wrapper.image-treatment img");
+		
+		for (Element e: imagenesE) {
+			imagenes.add(e.attr("src"));
+		}
+		
+		return imagenes;
+	}
+	
 	//Método para devolver arrayList de ofertas disponibles
 	private ArrayList<Oferta> ofertasDisponibles (Document doc) {
 		
 		ArrayList<Oferta> ofertas = new ArrayList<>();
 		ArrayList<String> precios = new ArrayList<>();
 		ArrayList<String> url = new ArrayList<>();
+		ArrayList<String> imagenes = new ArrayList<>();
+		
 		precios = this.preciosDisponibles(doc);
 		url = this.urlDisponibles(doc);
+		imagenes = this.imagenesDisponibles(doc);
 		
 		for (int i=0; i<url.size(); i++) {
 			Oferta oferta = new Oferta();
@@ -156,6 +172,7 @@ public class ebay {
 			oferta.setLugar(lugar);
 			oferta.setPrecio(precios.get(i).replace("EUR", "€"));
 			oferta.setUrl(url.get(i));
+			oferta.setImagen(imagenes.get(i));
 			
 			ofertas.add(oferta);
 		}
@@ -231,8 +248,9 @@ public class ebay {
 		String editorial = this.obtenerEditorial(doc);
 		String titulo = this.obtenerTitulo(doc);
 		String url = o.getUrl();
+		String imagen = o.getImagen();
 		
-		Libro libro = new Libro(titulo, isbn, autores, editorial, paginas, url, o);  
+		Libro libro = new Libro(titulo, isbn, autores, editorial, paginas, url, o, imagen);  
 		
 		return libro;
 	}
@@ -359,16 +377,22 @@ public class ebay {
 		
 		// Patrón para buscar el número de páginas
 	    Pattern pattern = Pattern.compile("Editorial (.+?) Marca");
+	    Pattern pattern2 = Pattern.compile("Editor (.+?) ISBN");
 
-	    // Busca elementos que contengan texto
+	    // Busca elementos que contengan texto 
 	    Elements elements = doc.select("p, div");
    	    
 	    for (Element e : elements) {
 	        String text = e.text();
 	        Matcher matcher = pattern.matcher(text);
+	        Matcher matcher2 = pattern2.matcher(text);
 	        if (matcher.find()) {
 	            editorial = matcher.group(1);
 	            return editorial;
+	        }
+	        if (matcher2.find()) {
+	        	editorial = matcher2.group(1);
+	        	return editorial;
 	        }
 	    }
 	    

@@ -5,6 +5,8 @@ public class Oferta {
 	String url;
 	String precio;
 	String disponibilidad;
+	//Añadido para ebay
+	String imagen;
 	
 	//Constructor
 	Oferta () {
@@ -44,6 +46,14 @@ public class Oferta {
     
     public void setDisponibilidad(String disponibilidad) {
     	this.disponibilidad = disponibilidad;
+    }
+    
+    public String getImagen() {
+    	return this.imagen;
+    }
+    
+    public void setImagen(String imagen) {
+    	this.imagen = imagen;
     }
     
     @Override
