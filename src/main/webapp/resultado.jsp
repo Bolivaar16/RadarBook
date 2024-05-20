@@ -96,7 +96,7 @@
 			        <p>Isbn: ${libro3.ISBN}</p>
 			        
 			        <c:forEach var="autor" items="${libro3.autores}">
-			            <c:out value="${autor}"/>
+			            <c:out value="Autor/a: ${autor}"/>
 			        </c:forEach>
 			
 			        <p>Editorial: ${libro3.editora}</p>
