@@ -72,7 +72,6 @@
         <nav id="menu_header">
             <ul>
                 <li class="opcion_menu"><a href="index.html">Inicio</a></li>
-                <li class="opcion_menu"><a href="index.jsp">Libros Recomendados</a></li>
             </ul>
         </nav>
     </header>
