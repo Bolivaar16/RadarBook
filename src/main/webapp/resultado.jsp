@@ -108,6 +108,9 @@
 			    </div>
 			</c:if>
 		</div>
+		<p>Libro 1: <c:out value="${libro1.toString()}"/></p>
+		<p>Libro 2: <c:out value="${libro2.toString()}"/></p>
+		<p>Libro 3: <c:out value="${libro3.toString()}"/></p>
 
 		
 

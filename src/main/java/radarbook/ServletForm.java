@@ -24,9 +24,9 @@ public class ServletForm extends HttpServlet {
 	ebay scrapper_ebay = new ebay();
 	String busqueda_nombre="";
 	String busqueda_ISBN="";
-	Libro libro1 = new Libro();
-	Libro libro2 = new Libro();
-	Libro libro3 = new Libro();
+	Libro libro1;
+	Libro libro2;
+	Libro libro3;
 	
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -69,6 +69,9 @@ public class ServletForm extends HttpServlet {
         
        
         // Agregar libros al request si están disponibles
+        if (libro1 != null) {
+        	request.setAttribute("libro1", libro1);
+        }
         if (libro2 != null) {
             request.setAttribute("libro2", libro2);
         }
