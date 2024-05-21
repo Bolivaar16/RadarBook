@@ -34,6 +34,7 @@ public class ServletForm extends HttpServlet {
         
         // Búsqueda de libros basado en una entrada del usuario
         busqueda_nombre = request.getParameter("searchNameInput");
+        busqueda_ISBN = request.getParameter("searchISBNInput");
         
         //Obtener libro 1 con la api de amazon
         /*try {
