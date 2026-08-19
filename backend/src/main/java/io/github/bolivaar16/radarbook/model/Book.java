@@ -2,11 +2,15 @@ package io.github.bolivaar16.radarbook.model;
 
 import java.util.List;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,9 +34,17 @@ public class Book {
 
     private String title;
     private String isbn;
-    private List<String> authors;
+
+    @ElementCollection
+    @CollectionTable(
+        name = "authors",
+        joinColumns = @JoinColumn(name = "book_id")
+    )
+@Column(name = "author")
+private List<String> authors;
     private String publisher;
     private int pages;
-    @OneToMany(fetch = FetchType.LAZY)
-    private BookOffer offer;
+    
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
+    private List<BookOffer> offers;
 }
