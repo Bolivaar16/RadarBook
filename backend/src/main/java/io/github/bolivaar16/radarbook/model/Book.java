@@ -40,8 +40,9 @@ public class Book {
         name = "authors",
         joinColumns = @JoinColumn(name = "book_id")
     )
-@Column(name = "author")
-private List<String> authors;
+    @Column(name = "author")
+    private List<String> authors;
+    
     private String publisher;
     private int pages;
     
