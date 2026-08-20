@@ -4,12 +4,12 @@ services:
     container_name: radarbook-postgres
 
     environment:
-      POSTGRES_DB=radarbook
-      POSTGRES_USER=radarbook
-      POSTGRES_PASSWORD=radarbook_dev
+      POSTGRES_DB: radarbook
+      POSTGRES_USER: radarbook
+      POSTGRES_PASSWORD: radarbook_dev
 
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
     volumes:
       - radarbook_postgres_data:/var/lib/postgresql/data
