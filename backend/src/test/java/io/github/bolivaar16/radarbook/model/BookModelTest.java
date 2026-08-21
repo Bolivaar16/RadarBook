@@ -61,7 +61,8 @@ class BookModelTest {
 
         assertNotNull(book.getAuthors());
         assertTrue(book.getAuthors().isEmpty());
-        assertNull(book.getOffers());
+        assertNotNull(book.getOffers());
+        assertTrue(book.getOffers().isEmpty());
         assertNotNull(author.getBooks());
         assertTrue(author.getBooks().isEmpty());
         assertFalse(offer.isAvailability());
@@ -80,5 +81,21 @@ class BookModelTest {
         assertEquals("Ursula K. Le Guin", author.getName());
         assertTrue(offer.isAvailability());
         assertEquals(book, offer.getBook());
+    }
+
+    @Test
+    void addAndRemoveOfferKeepBothSidesOfTheRelationshipInSync() {
+        Book book = new Book();
+        BookOffer offer = new BookOffer();
+
+        book.addOffer(offer);
+
+        assertTrue(book.getOffers().contains(offer));
+        assertEquals(book, offer.getBook());
+
+        book.removeOffer(offer);
+
+        assertFalse(book.getOffers().contains(offer));
+        assertNull(offer.getBook());
     }
 }
