@@ -20,7 +20,7 @@ class ProviderDtoTest {
         assertEquals(new BigDecimal("12.50"), offer.price());
         assertEquals("https://example.test/1", offer.url());
         assertEquals("Available", offer.availabilityDetails());
-        assertEquals(Platform.EBAY, offer.origin());
+        assertEquals(Platform.EBAY, offer.platform());
         assertEquals(offer, new ProviderOfferDTO(new BigDecimal("12.50"), "https://example.test/1", true,
                 "Available", "https://example.test/1.jpg", Platform.EBAY));
         assertNotEquals(offer, new ProviderOfferDTO(new BigDecimal("12.50"), "https://example.test/1", false,
