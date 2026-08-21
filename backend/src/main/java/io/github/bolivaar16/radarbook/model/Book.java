@@ -45,8 +45,20 @@ public class Book {
     private Set<Author> authors = new HashSet<>();
         
     private String publisher;
-    private int pages;
+    private Integer pages;
         
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
-    private Set<BookOffer> offers;
+    @Builder.Default
+    private Set<BookOffer> offers = new HashSet<>();
+
+
+    public void addOffer(BookOffer offer) {
+        offers.add(offer);
+        offer.setBook(this);
+    }
+
+    public void removeOffer(BookOffer offer) {
+        offers.remove(offer);
+        offer.setBook(null);
+    }
 }

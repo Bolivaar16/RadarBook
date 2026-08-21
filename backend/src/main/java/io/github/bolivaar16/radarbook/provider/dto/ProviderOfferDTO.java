@@ -10,6 +10,6 @@ public record ProviderOfferDTO(
     boolean availability,
     String availabilityDetails,
     String imageUrl,
-    Platform origin
+    Platform platform
 ) {
 }
