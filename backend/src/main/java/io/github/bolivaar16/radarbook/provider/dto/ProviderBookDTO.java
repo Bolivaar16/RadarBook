@@ -7,7 +7,7 @@ public record ProviderBookDTO(
     String isbn,
     Set<String> authors,
     String publisher,
-    Integer pages,
-    Set<ProviderOfferDTO> offers
+    Set<ProviderOfferDTO> offers,
+    Integer pages
 ) {
 }
