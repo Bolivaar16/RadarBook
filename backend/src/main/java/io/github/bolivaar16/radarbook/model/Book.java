@@ -1,7 +1,6 @@
 package io.github.bolivaar16.radarbook.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -49,5 +48,5 @@ public class Book {
     private int pages;
         
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
-    private List<BookOffer> offers;
+    private Set<BookOffer> offers;
 }

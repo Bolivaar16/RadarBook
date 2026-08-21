@@ -2,6 +2,7 @@ package io.github.bolivaar16.radarbook.model;
 
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,4 +49,7 @@ public class BookOffer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
+
+    @Column(nullable = false)
+    private Instant lastSeenAt;
 }
