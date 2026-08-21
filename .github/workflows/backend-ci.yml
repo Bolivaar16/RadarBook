@@ -4,12 +4,10 @@ on:
   pull_request:
     branches:
       - main
-      - feat/radarbook-v2
 
   push:
     branches:
       - main
-      - feat/radarbook-v2
 
 permissions:
   contents: read
