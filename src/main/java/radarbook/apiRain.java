@@ -31,7 +31,7 @@ public class apiRain {
 	
 	public Libro devolverLibro(String aBuscar) {
 		
-		String urlAPI = "https://api.rainforestapi.com/request?api_key=EEFCD7EE6E2B44B1B284F81D22E0E527&type=search&amazon_domain=amazon.es&search_term=" 
+		String urlAPI = "https://api.rainforestapi.com/request?api_key=" + requireEnv("RAINFOREST_API_KEY") + "&type=search&amazon_domain=amazon.es&search_term=" 
 				+ aBuscar.replaceAll("\\s+","+") + "&category_id=599365031&currency=eur";
 		int codigoRespuesta = 0;
 		Oferta o = new Oferta();
@@ -157,7 +157,7 @@ public class apiRain {
 		OkHttpClient client = new OkHttpClient();
 	        
 		String apiUrl = "https://api.scrapingdog.com/scrape";
-        String apiKey = "663ebd3d7ea2814fb3640cd2";
+        String apiKey = requireEnv("SCRAPINGDOG_API_KEY");
         String targetUrl = url;
         boolean dynamic = false;
         
@@ -375,4 +375,13 @@ public class apiRain {
 		
 	}
 	
+
+    // API keys are read from the environment; they must never live in the source.
+    private static String requireEnv(String name) {
+        String value = System.getenv(name);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing environment variable: " + name);
+        }
+        return value;
+    }
 }

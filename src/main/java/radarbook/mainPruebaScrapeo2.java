@@ -40,7 +40,7 @@ public class mainPruebaScrapeo2  {
 		  OkHttpClient client = new OkHttpClient();
 	        
 		  String apiUrl = "https://api.scrapingdog.com/scrape";
-          String apiKey = "663ebd3d7ea2814fb3640cd2";
+          String apiKey = requireEnv("SCRAPINGDOG_API_KEY");
           String targetUrl = "https://www.amazon.es/Los-juegos-hambre-SUZANNE-COLLINS/dp/8427202121/ref=asc_df_8427202121/?tag=googshopes-21&linkCode=df0&hvadid=195231592075&hvpos=&hvnetw=g&hvrand=10496118824230249646&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1005414&hvtargid=pla-138232518555&psc=1&mcid=9a48975b411e3d6e9d6bc4ee773710d0";
           boolean dynamic = false;
           
@@ -112,5 +112,14 @@ public class mainPruebaScrapeo2  {
 		        
 	
 	
+
+    // API keys are read from the environment; they must never live in the source.
+    private static String requireEnv(String name) {
+        String value = System.getenv(name);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing environment variable: " + name);
+        }
+        return value;
+    }
 }
 
