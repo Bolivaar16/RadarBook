@@ -22,3 +22,10 @@ buildNumber.properties
 
 # Maven targets in subprojects
 **/target/
+
+# Secrets and local environment
+.env.*
+!.env.example
+
+# Internal notes never leave this machine
+docs/interno/
